@@ -136,7 +136,7 @@ class OrderDetailsTest {
 	  }
 	  
 	  @Test 
-	  @DisplayName("Checking")
+	  @DisplayName("Checking if not found")
 	  void testOrderException() throws MobileNotFoundException{
 		  String expected="mobile not ordered";
 		  when(mobileService.getById(100)).thenThrow(MobileNotFoundException.class);

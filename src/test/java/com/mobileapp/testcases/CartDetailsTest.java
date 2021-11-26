@@ -13,6 +13,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
@@ -102,5 +103,16 @@ class CartDetailsTest {
 	    assertNull(cartDetails.showCart());
 		
 	}
+ @Test 
+   void testRemoveCart() throws EmptyCartException{
+	 doReturn(true).when(cartService).removeFromCart(mobile1);
+	 assertEquals(true,cartDetails.removeFromCart(mobile1));
+ }
 
+ @Test
+ @DisplayName()
+   void testRemoveCartEmpty() throws EmptyCartException {
+	 doThrow(new EmptyCartException()).when(cartService).removeFromCart(mobile2);
+     assertThrows(EmptyCartException.class,()->cartDetails.removeFromCart(mobile2));
+ }
 }

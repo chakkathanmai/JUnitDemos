@@ -33,9 +33,10 @@ public class CartDetails  {
 		return "added succesfully";		
 	}
 
-	public boolean removeFromCart(Mobile mobile) throws MobileNotFoundException {
-		
-		return false;
+	public boolean removeFromCart(Mobile mobile) throws EmptyCartException {
+		Boolean result=false;
+		result=cartService.removeFromCart(mobile);
+		return result;
 	}
-
+    
 }

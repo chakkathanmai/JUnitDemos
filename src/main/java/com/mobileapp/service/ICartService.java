@@ -9,6 +9,6 @@ import com.mobileapp.model.Mobile;
 public interface ICartService {
 	List<Mobile> showCart() throws EmptyCartException;
 	void addtoCart(Mobile mobile) throws MobileNotFoundException; //return nothing or throw exception
-	boolean removeFromCart(Mobile mobile) throws MobileNotFoundException;
+	boolean removeFromCart(Mobile mobile) throws EmptyCartException;
 
 }
